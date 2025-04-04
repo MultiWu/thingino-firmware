@@ -1,8 +1,5 @@
 name: firmware-x86_64
 on:
-  schedule:
-    # 00:30 PST / Nightly
-    - cron:  '30 8 * * *'
   workflow_dispatch:
     inputs:
       tg_disabled:
@@ -134,7 +131,7 @@ jobs:
           done
           JSON_MATRIX="${JSON_MATRIX%,}]}"
           echo "Matrix: $JSON_MATRIX"
-          echo "matrix=$JSON_MATRIX" >> $GITHUB_OUTPUT
+          echo "matrix={"thingino-version": ["xiaomi_mjsxj03hl_t31n_jxq03p_rtl8189ftv"]}" >> $GITHUB_OUTPUT
 
   buildroot:
     name: ${{ matrix.thingino-version }}
